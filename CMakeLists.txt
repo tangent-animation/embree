@@ -90,15 +90,15 @@ ELSE()
   SET(EMBREE_LIB_TYPE SHARED)
 ENDIF()
 
-OPTION(EMBREE_ISPC_SUPPORT "Build Embree with support for ISPC applications." ON)
-OPTION(EMBREE_TUTORIALS    "Enable to build Embree tutorials" ON)
+OPTION(EMBREE_ISPC_SUPPORT "Build Embree with support for ISPC applications." OFF)
+OPTION(EMBREE_TUTORIALS    "Enable to build Embree tutorials" OFF)
 
 ##############################################################################
 # Configurations (add configurations also to common/cmake/embree-config-default.cmake)
 
 OPTION(EMBREE_STAT_COUNTERS "Enables statistic counters.")
 
-OPTION(EMBREE_RAY_MASK "Enables ray mask support.")
+OPTION(EMBREE_RAY_MASK "Enables ray mask support." ON)
 OPTION(EMBREE_BACKFACE_CULLING "Enables backface culling.")
 OPTION(EMBREE_INTERSECTION_FILTER "Enables intersection filter callback." ON)
 OPTION(EMBREE_INTERSECTION_FILTER_RESTORE "Restores previous hit when hit is filtered out." ON)
@@ -120,7 +120,7 @@ ELSE()
   SET(EMBREE_NATIVE_CURVE_BSPLINE OFF)
 ENDIF()
 
-SET(EMBREE_TASKING_SYSTEM "TBB" CACHE STRING "Selects tasking system")
+SET(EMBREE_TASKING_SYSTEM “INTERNAL” CACHE STRING "Selects tasking system")
 IF (WIN32)
   SET_PROPERTY(CACHE EMBREE_TASKING_SYSTEM PROPERTY STRINGS TBB INTERNAL PPL)
 ELSE()
