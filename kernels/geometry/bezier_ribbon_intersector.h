@@ -115,6 +115,10 @@ namespace embree
         
         vfloatx vu,vv,vt;
         vboolx valid0 = intersect_quad_backface_culling(valid,zero,Vec3fa(0,0,1),ray_tnear,ray_tfar,lp0,lp1,up1,up0,vu,vv,vt);
+
+        vfloatx r = lerp(p0.w, p1.w, vv);
+        valid0 &= vt > r*2.0;
+
         if (any(valid0))
         {
           vv = madd(2.0f,vv,vfloatx(-1.0f));
@@ -148,6 +152,10 @@ namespace embree
           
           vfloatx vu,vv,vt;
           vboolx valid0 = intersect_quad_backface_culling(valid,zero,Vec3fa(0,0,1),ray_tnear,ray_tfar,lp0,lp1,up1,up0,vu,vv,vt);
+ 
+          vfloatx r = lerp(p0.w, p1.w, vv);
+          valid0 &= vt > r*2.0;
+
           if (any(valid0))
           {
             vv = madd(2.0f,vv,vfloatx(-1.0f));
