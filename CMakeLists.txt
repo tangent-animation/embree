@@ -1,4 +1,4 @@
-## ======================================================================== ##
+﻿## ======================================================================== ##
 ## Copyright 2009-2017 Intel Corporation                                    ##
 ##                                                                          ##
 ## Licensed under the Apache License, Version 2.0 (the "License");          ##
@@ -102,7 +102,7 @@ OPTION(EMBREE_RAY_MASK "Enables ray mask support." ON)
 OPTION(EMBREE_BACKFACE_CULLING "Enables backface culling.")
 OPTION(EMBREE_INTERSECTION_FILTER "Enables intersection filter callback." ON)
 OPTION(EMBREE_INTERSECTION_FILTER_RESTORE "Restores previous hit when hit is filtered out." ON)
-OPTION(EMBREE_IGNORE_INVALID_RAYS "Ignores invalid rays." OFF) # FIXME: enable by default?
+OPTION(EMBREE_IGNORE_INVALID_RAYS "Ignores invalid rays." ON) # required for Cycles
 
 OPTION(EMBREE_GEOMETRY_TRIANGLES "Enables support for triangle geometries." ON)
 OPTION(EMBREE_GEOMETRY_QUADS "Enables support for quad geometries." ON)
